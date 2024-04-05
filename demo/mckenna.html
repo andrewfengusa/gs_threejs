@@ -5,7 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>3D Gaussian Splat Demo - Stump</title>
+  <title>3D Gaussian Splat Demo - Truck</title>
+  <script src="../coi-serviceworker.js"></script>
   <script type="text/javascript" src="js/util.js"></script>
   <script type="importmap">
     {
@@ -30,13 +31,24 @@
 <body>
   <script type="module">
     import * as GaussianSplats3D from '@mkkellogg/gaussian-splats-3d';
+    import * as THREE from 'three';
     const viewer = new GaussianSplats3D.Viewer({
-        'cameraUp': [0, -1, -1.0],
-        'initialCameraPosition': [-3.3816, 1.96931, -1.71890],
-        'initialCameraLookAt': [-0.04979, 1.37519, 1.13443]
+        'cameraUp': [0, 0, 1],
+        // default
+        //'initialCameraPosition': [0, 1, 0],
+        //'initialCameraLookAt': [1, 0, 0],
+
+        // Ft. Moore McKenna subregion
+        'initialCameraPosition': [-41.44745, -37.85827, 116.20967],
+        'initialCameraLookAt': [-17.18582, -10.44447, 102.87701],
+
+        // Ft. Cavazo Municipal
+        //'initialCameraPosition': [-5, -23, -5],
+        //'initialCameraLookAt': [8, -11, -5],
     });
-    let path = 'assets/data/stump/stump';
-    path += isMobile() ? '.ksplat' : '_high.ksplat';
+    //let path = 'assets/data/municipal/municipal.ksplat';
+    let path = 'assets/data/test/test_1.7M.ksplat';
+    //path += isMobile() ? '.ksplat' : '_high.ksplat';
     viewer.addSplatScene(path, {
       'streamView': true
     })

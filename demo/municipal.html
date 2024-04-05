@@ -34,13 +34,20 @@
     import * as THREE from 'three';
     const viewer = new GaussianSplats3D.Viewer({
         'cameraUp': [0, 0, 1],
-        //'initialCameraPosition': [0, 1, 0],
+        // default
+        // 'initialCameraPosition': [0, 1, 0],
+        // 'initialCameraLookAt': [1, 0, 0],
+
+        // Ft. Moore McKenna subregion
+        // 'initialCameraPosition': [-41.44745, -37.85827, 116.20967],
+        // 'initialCameraLookAt': [-17.18582, -10.44447, 102.87701],
+
+        // Ft. Cavazo Municipal
         'initialCameraPosition': [-5, -23, -5],
-        //'initialCameraLookAt': [1, 0, 0],
         'initialCameraLookAt': [8, -11, -5],
     });
-    //let path = 'assets/data/municipal/municipal.ksplat';
-    let path = 'assets/data/test/test_1.7M.ksplat';
+    let path = 'assets/data/municipal/municipal.ksplat';
+    //let path = 'assets/data/test/test_1.7M.ksplat';
     //path += isMobile() ? '.ksplat' : '_high.ksplat';
     viewer.addSplatScene(path, {
       'streamView': true
